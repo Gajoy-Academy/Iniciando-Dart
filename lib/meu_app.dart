@@ -1,9 +1,8 @@
-import 'dart:convert';
 import 'dart:io';
 
-import 'package:meu_app/exception/nome_invalido_exception.dart';
-import 'package:meu_app/models/Aluno.dart';
-import 'package:meu_app/models/console_utils.dart';
+import 'exception/nome_invalido_exception.dart';
+import 'models/Aluno.dart';
+import 'models/console_utils.dart';
 
 void execute() {
   print("Bem vindo ao sistema de notas");
@@ -14,7 +13,7 @@ void execute() {
     if (nome.trim() == "") {
       throw NomeInvalidoException();
     }
-  } catch (NomeInvalidoException) {
+  } on NomeInvalidoException {
     nome = "Nome Padção";
     print(NomeInvalidoException);
     exit(0);
