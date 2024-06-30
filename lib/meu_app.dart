@@ -9,4 +9,13 @@ void execute() {
   
   String nome = ConsoleUtils.lerStringComTexto("Digite o nome do aluno:");
   var aluno = Aluno(nome);
+  double? nota;
+
+  do {
+    nota = ConsoleUtils.lerDoubleComTexto("Digite a nota ou S para sair");
+    if (nota != null) {
+      aluno.adicionarNota(nota);
+    }
+  } while (nota != null);
+  print(aluno.getNotas());
 }
