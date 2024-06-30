@@ -21,4 +21,19 @@ class Aluno {
   void adicionarNota(double nota) {
     _notas.add(nota);
   }
+
+  double retornaMedia() {
+    var totalNotas = 0.0;
+
+    for (var nota in _notas) {
+      totalNotas += nota;
+    }
+
+    var media = totalNotas / _notas.length;
+    return media.isNaN ? 0 : media;
+  }
+
+  bool aprovado(double notaCorte) {
+    return retornaMedia() >= notaCorte;
+  }
 }
